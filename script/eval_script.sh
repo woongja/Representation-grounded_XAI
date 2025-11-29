@@ -12,17 +12,70 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # ===================================
 # 공통 설정
 # ===================================
-GPU_ID="MIG-8cdeef83-092c-5a8d-a748-452f299e1df0"
+GPU_ID="MIG-46b32d1b-f775-5b7d-a987-fb8ebc049494"
 
 # ===================================
 # 1. ConformerTCM baseline model (spoofceleb_aug)
 # ===================================
-# RESULTS_DIR="/home/woongjae/wildspoof/SFM-ADD/results/baseline_spoofceleb_aug"
-# MODEL_PATH="/home/woongjae/wildspoof/SFM-ADD/out/conformertcm_batch32_5p_spoofceleb_aug.pth"
-# CONFIG_FILE="/home/woongjae/wildspoof/SFM-ADD/configs/conformertcm_baseline.yaml"
+# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/baseline"
+# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_baseline_spoofceleb_aug.pth"
+# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_baseline.yaml"
 
 # bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
 
+# ===================================
+# 1. ConformerTCM baseline model (spoofceleb_aug)
+# ===================================
+# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/concat"
+# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_concat_spoofceleb_aug.pth"
+# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_concat.yaml"
+
+# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
+
+# ===================================
+# 1. ConformerTCM baseline model (spoofceleb_aug)
+# ===================================
+# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/gated"
+# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_gated_spoofceleb_aug.pth"
+# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_gated.yaml"
+
+# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
+
+# ===================================
+# 1. ConformerTCM baseline model (spoofceleb_aug)
+# ===================================
+# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/covariance"
+# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_covariance_spoofceleb_aug.pth"
+# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_covariance.yaml"
+
+# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
+
+# ===================================
+# 1. ConformerTCM baseline model (spoofceleb_aug)
+# ===================================
+# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/covariance_diagonal"
+# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_covariance_diagonal_spoofceleb_aug.pth"
+# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_covariance.yaml"
+
+# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
+
+# ===================================
+# 1. ConformerTCM baseline model (spoofceleb_aug)
+# ===================================
+# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/crossattn"
+# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_crossattn_spoofceleb_aug.pth"
+# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_crossattn.yaml"
+
+# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
+
+# ===================================
+# 1. ConformerTCM baseline model (spoofceleb_aug)
+# ===================================
+RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/attnmask"
+MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_attnmask_spoofceleb_aug.pth"
+CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_attnmask.yaml"
+
+bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
 
 # ===================================
 # 💡 사용 방법

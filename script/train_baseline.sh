@@ -13,7 +13,7 @@ COMMENT="conformertcm_baseline_spoofceleb_aug"
 # ========================
 # Balanced Training 실행
 # ========================
-CUDA_VISIBLE_DEVICES=MIG-46b32d1b-f775-5b7d-a987-fb8ebc049494 python /home/woongjae/ADD_LAB/SSL_Fusion_ADD/main.py \
+OMP_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=MIG-46b32d1b-f775-5b7d-a987-fb8ebc049494 python /home/woongjae/ADD_LAB/SSL_Fusion_ADD/main.py \
   --database_path ${DATABASE_PATH} \
   --protocol_path ${PROTOCOL_PATH} \
   --config ${CONFIG_FILE} \
