@@ -1,0 +1,68 @@
+# SC-XAI Model E: Full SC-XAI (All Explainability Losses Enabled)
+# Consistency + Sensitivity + Sparsity
+
+model:
+  name: xai
+
+  # SSL Encoder
+  ssl_model_path: /home/woongjae/wildspoof/xlsr2_300m.pt
+  ssl_dim: 1024
+
+  # Architecture
+  importance_hidden_dim: 256
+  emb_size: 144  # Conformer embedding dimension
+  num_classes: 2
+
+  # Conformer parameters
+  heads: 4
+  num_encoders: 4
+  kernel_size: 31
+
+  # Explainability Loss Flags (Model B: all enabled)
+  use_consistency_loss: true
+  use_sensitivity_loss: false
+  use_sparsity_loss: false
+
+  # Loss Weights
+  alpha_consistency: 0.1
+  beta_sensitivity: 0.1
+  gamma_sparsity: 0.01
+
+  # Sensitivity Loss Parameters
+  sensitivity_noise_std: 0.1
+  sensitivity_spoof_weight: 2.0
+  sensitivity_bona_weight: 0.5
+
+  # LAM Support
+  return_lam_embedding: false
+
+  # Debug
+  debug: false
+
+# Data
+data:
+  name: data_utils_asvspoof
+  sample_rate: 16000
+  max_duration: 4.0
+  min_duration: 1.0
+  mean_norm: true
+  std_norm: true
+
+# Training
+training:
+  optimizer: adamw
+  lr: 0.0001
+  weight_decay: 0.0001
+  scheduler: cosine
+  warmup_epochs: 5
+  epochs: 50
+  batch_size: 16
+  num_workers: 8
+  max_grad_norm: 5.0
+  use_amp: true
+
+# Evaluation
+evaluation:
+  batch_size: 32
+  compute_eer: true
+  compute_min_dcf: true

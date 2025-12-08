@@ -34,7 +34,7 @@ CONFIG_FILE=$5
 # 설정
 # ========================
 # 공통 데이터셋 정보
-DATASET_YAML="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/datasets_base.yaml"
+DATASET_YAML="/home/woongjae/ADD_LAB/Representation-grounded_XAI/configs/datasets_base.yaml"
 
 # 결과 저장 경로 (자동 생성)
 EVAL_OUTPUT="${RESULTS_DIR}/eval_${DATASET}.txt"
@@ -88,7 +88,7 @@ echo "=========================================="
 # ========================
 # 평가 실행
 # ========================
-CUDA_VISIBLE_DEVICES=${GPU_ID} python /home/woongjae/wildspoof/SFM-ADD/main.py \
+CUDA_VISIBLE_DEVICES=${GPU_ID} python /home/woongjae/ADD_LAB/Representation-grounded_XAI/main.py \
   --eval \
   --database_path "${DATABASE_PATH}" \
   --protocol_path "${PROTOCOL_PATH}" \

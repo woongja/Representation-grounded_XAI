@@ -12,70 +12,17 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # ===================================
 # 공통 설정
 # ===================================
-GPU_ID="MIG-46b32d1b-f775-5b7d-a987-fb8ebc049494"
+GPU_ID="MIG-57de94a5-be15-5b5a-b67e-e118352d8a59"
 
 # ===================================
-# 1. ConformerTCM baseline model (spoofceleb_aug)
+# 1. WavSpec baseline(asv19)
 # ===================================
-# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/baseline"
-# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_baseline_spoofceleb_aug.pth"
-# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_baseline.yaml"
-
-# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
-
-# ===================================
-# 1. ConformerTCM baseline model (spoofceleb_aug)
-# ===================================
-# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/concat"
-# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_concat_spoofceleb_aug.pth"
-# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_concat.yaml"
-
-# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
-
-# ===================================
-# 1. ConformerTCM baseline model (spoofceleb_aug)
-# ===================================
-# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/gated"
-# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_gated_spoofceleb_aug.pth"
-# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_gated.yaml"
-
-# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
-
-# ===================================
-# 1. ConformerTCM baseline model (spoofceleb_aug)
-# ===================================
-# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/covariance"
-# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_covariance_spoofceleb_aug.pth"
-# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_covariance.yaml"
-
-# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
-
-# ===================================
-# 1. ConformerTCM baseline model (spoofceleb_aug)
-# ===================================
-# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/covariance_diagonal"
-# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_covariance_diagonal_spoofceleb_aug.pth"
-# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_covariance.yaml"
-
-# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
-
-# ===================================
-# 1. ConformerTCM baseline model (spoofceleb_aug)
-# ===================================
-# RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/crossattn"
-# MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_crossattn_spoofceleb_aug.pth"
-# CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_crossattn.yaml"
-
-# bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
-
-# ===================================
-# 1. ConformerTCM baseline model (spoofceleb_aug)
-# ===================================
-RESULTS_DIR="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/results/spoofceleb_aug/attnmask"
-MODEL_PATH="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/out/conformertcm_fusion_attnmask_spoofceleb_aug.pth"
-CONFIG_FILE="/home/woongjae/ADD_LAB/SSL_Fusion_ADD/configs/conformertcm_fusion_attnmask.yaml"
+RESULTS_DIR="/home/woongjae/ADD_LAB/Representation-grounded_XAI/results/b"
+MODEL_PATH="/home/woongjae/ADD_LAB/Representation-grounded_XAI/out/xai_asv19_b.pth"
+CONFIG_FILE="/home/woongjae/ADD_LAB/Representation-grounded_XAI/configs/xai_model_b.yaml"
 
 bash "${SCRIPT_DIR}/eval_all_unified.sh" "${GPU_ID}" "${RESULTS_DIR}" "${MODEL_PATH}" "${CONFIG_FILE}"
+
 
 # ===================================
 # 💡 사용 방법

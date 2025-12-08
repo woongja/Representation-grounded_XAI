@@ -37,8 +37,8 @@ echo "📝 Config: ${CONFIG_FILE}"
 echo "=========================================="
 echo ""
 
-DATASETS=("wildspoof" "spoofceleb_aug" "itw"  "deepen" "asv19_noise" "df21_noise")
-
+# DATASETS=("wildspoof" "spoofceleb_aug" "itw"  "deepen" "asv19_noise" "df21_noise")
+DATASETS=("itw")
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

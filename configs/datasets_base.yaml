@@ -2,8 +2,8 @@
 # eval 스크립트에서 결과 경로만 추가로 지정
 
 itw:
-  database_path: /home/woongjae/wildspoof/Datasets/itw
-  protocol_path: /home/woongjae/wildspoof/protocols/protocol_itw.txt
+  database_path: /home/woongjae/ADD_LAB/Datasets/itw
+  protocol_path: /home/woongjae/ADD_LAB/Representation-grounded_XAI/protocols/protocol_itw.txt
 
 add2022:
   database_path: /home/woongjae/wildspoof/Datasets/add2022
