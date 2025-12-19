@@ -1,0 +1,52 @@
+# ============================================================================
+# STAGE 2: XAI Module Configuration
+# ============================================================================
+# This trains the XAI module on a FROZEN pretrained detector.
+
+# Data Configuration
+data:
+  name: "data_utils_asvspoof"
+  use_balance_training: false
+
+# Model Configuration
+model:
+  name: "xai_stage2"  # Use Stage 2 XAI model
+
+  # ========================================
+  # Pretrained Detector (FROZEN)
+  # ========================================
+  pretrained_checkpoint: "/home/woongjae/ADD_LAB/Representation-grounded_XAI/avg_5_best.pth"
+
+  # ConformerTCM architecture (must match pretrained model)
+  emb_size: 144
+  num_encoders: 4
+  heads: 4
+  kernel_size: 31
+
+  # ========================================
+  # XAI Module (TRAINABLE)
+  # ========================================
+  importance_hidden_dim: 256
+
+  # Prototype mode: 'ema' (default), 'fixed' (ablation), 'learnable' (fallback)
+  prototype_mode: "ema"
+  ema_momentum: 0.99
+
+  # Contrastive loss temperature
+  temperature: 0.07
+
+  # Loss weights
+  lambda_bonafide_reg: 0.1      # Bonafide importance suppression
+  lambda_temporal_smooth: 0.1    # Temporal smoothness
+  lambda_sparsity: 0.01          # Sparsity for spoof
+
+  # General
+  num_classes: 2
+
+# Training Configuration
+training:
+  batch_size: 24
+  num_epochs: 50
+  learning_rate: 1e-4
+  weight_decay: 1e-4
+  patience: 10

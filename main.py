@@ -172,8 +172,13 @@ def train_epoch(train_loader, model, optimizer, device, epoch, use_balance_train
             batch_x, batch_y = batch_x.to(device), batch_y.to(device).long()
 
             # Model returns (logits, attn_score)
-            logits, _ = model(batch_x)
-            loss = criterion(logits, batch_y)
+            logits, _ = model(batch_x, batch_y)  # Pass labels for XAI models
+
+            # Use custom loss if model provides it (for XAI models)
+            if hasattr(model, 'last_loss'):
+                loss = model.last_loss
+            else:
+                loss = criterion(logits, batch_y)
 
             optimizer.zero_grad()
             loss.backward()
@@ -201,7 +206,7 @@ def train_epoch(train_loader, model, optimizer, device, epoch, use_balance_train
             if len(batch_data) == 2:
                 batch_x, batch_y = batch_data
                 batch_x, batch_y = batch_x.to(device), batch_y.to(device).long()
-                logits, _ = model(batch_x)
+                logits, _ = model(batch_x, batch_y)  # Pass labels for XAI models
             else:  # len == 3, fusion dataset
                 batch_x, batch_mel, batch_y = batch_data
                 batch_x = batch_x.to(device)
@@ -209,7 +214,11 @@ def train_epoch(train_loader, model, optimizer, device, epoch, use_balance_train
                 batch_y = batch_y.to(device).long()
                 logits, _ = model(batch_x, batch_mel)
 
-            loss = criterion(logits, batch_y)
+            # Use custom loss if model provides it (for XAI models)
+            if hasattr(model, 'last_loss'):
+                loss = model.last_loss
+            else:
+                loss = criterion(logits, batch_y)
 
             optimizer.zero_grad()
             loss.backward()
@@ -253,8 +262,13 @@ def eval_epoch(dev_loader, model, device, epoch, use_balance_training=True):
                 batch_x, batch_y = batch_x.to(device), batch_y.to(device).long()
 
                 # Model returns (logits, attn_score)
-                logits, _ = model(batch_x)
-                loss = criterion(logits, batch_y)
+                logits, _ = model(batch_x, batch_y)  # Pass labels for XAI models
+
+                # Use custom loss if model provides it (for XAI models)
+                if hasattr(model, 'last_loss'):
+                    loss = model.last_loss
+                else:
+                    loss = criterion(logits, batch_y)
 
                 val_loss += loss.item()
 
@@ -277,7 +291,7 @@ def eval_epoch(dev_loader, model, device, epoch, use_balance_training=True):
                 if len(batch_data) == 2:
                     batch_x, batch_y = batch_data
                     batch_x, batch_y = batch_x.to(device), batch_y.to(device).long()
-                    logits, _ = model(batch_x)
+                    logits, _ = model(batch_x, batch_y)  # Pass labels for XAI models
                 else:  # len == 3, fusion dataset
                     batch_x, batch_mel, batch_y = batch_data
                     batch_x = batch_x.to(device)
@@ -285,7 +299,11 @@ def eval_epoch(dev_loader, model, device, epoch, use_balance_training=True):
                     batch_y = batch_y.to(device).long()
                     logits, _ = model(batch_x, batch_mel)
 
-                loss = criterion(logits, batch_y)
+                # Use custom loss if model provides it (for XAI models)
+                if hasattr(model, 'last_loss'):
+                    loss = model.last_loss
+                else:
+                    loss = criterion(logits, batch_y)
 
                 val_loss += loss.item()
 
